@@ -1,0 +1,1 @@
+{"name":"ego-dermatology","version":"1.0.0","private":true,"type":"module","scripts":{"dev":"node preview-server.mjs","build":"python3 build.py","check":"python3 validate.py"}}

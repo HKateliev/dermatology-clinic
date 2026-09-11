@@ -1,0 +1,15 @@
+{
+  "html_documents": 35,
+  "errors": [],
+  "primary_text_contrast": {
+    "2d302c/fffdfb": 13.18,
+    "686b64/fffdfb": 5.34,
+    "c9261b/fffdfb": 5.48,
+    "ffffff/c9261b": 5.56
+  },
+  "css_bytes": 28373,
+  "js_bytes": 2245,
+  "external_images": "None: logo and authentic photographs are local assets; desktop browser confirmed all load.",
+  "browser_visual_testing": "Desktop checked at 1363px; mobile QA uses actual 390px iframe viewport in dev-only preview.",
+  "core_web_vitals": "Targets only; not measured on real devices."
+}

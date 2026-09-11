@@ -1,0 +1,172 @@
+[
+  {
+    "url": "/",
+    "title": "Дерматолог Варна",
+    "pending_review": false
+  },
+  {
+    "url": "/uslugi/",
+    "title": "Услуги",
+    "pending_review": false
+  },
+  {
+    "url": "/uslugi/dermatologia-venerologia/",
+    "title": "Дерматология и венерология",
+    "pending_review": true
+  },
+  {
+    "url": "/uslugi/dermatohirurgia/",
+    "title": "Дерматохирургия",
+    "pending_review": true
+  },
+  {
+    "url": "/uslugi/lazerna-dermatologia/",
+    "title": "Лазерна дерматология",
+    "pending_review": true
+  },
+  {
+    "url": "/uslugi/estetichna-medicina/",
+    "title": "Естетична медицина",
+    "pending_review": true
+  },
+  {
+    "url": "/uslugi/dermatologichen-pregled/",
+    "title": "Дерматологичен преглед във Варна",
+    "pending_review": true
+  },
+  {
+    "url": "/uslugi/dermatoskopia/",
+    "title": "Дерматоскопия във Варна",
+    "pending_review": true
+  },
+  {
+    "url": "/uslugi/benki/",
+    "title": "Преглед и премахване на бенки във Варна",
+    "pending_review": true
+  },
+  {
+    "url": "/uslugi/bradavici-kokoshi-tran/",
+    "title": "Брадавици и кокоши трън във Варна",
+    "pending_review": true
+  },
+  {
+    "url": "/uslugi/kondilomi/",
+    "title": "Преглед и лечение на кондиломи във Варна",
+    "pending_review": true
+  },
+  {
+    "url": "/uslugi/lazerno-premahvane/",
+    "title": "Лазерно премахване на кожни образувания във Варна",
+    "pending_review": true
+  },
+  {
+    "url": "/uslugi/akne/",
+    "title": "Преглед и лечение на акне във Варна",
+    "pending_review": true
+  },
+  {
+    "url": "/uslugi/co2-frakcionen-lazer/",
+    "title": "CO₂ фракционен лазер във Варна",
+    "pending_review": true
+  },
+  {
+    "url": "/uslugi/belezi-ot-akne/",
+    "title": "Лечение на белези от акне във Варна",
+    "pending_review": true
+  },
+  {
+    "url": "/uslugi/rozacea-kapilyari/",
+    "title": "Розацея и видими капиляри във Варна",
+    "pending_review": true
+  },
+  {
+    "url": "/uslugi/pigmentacii/",
+    "title": "Консултация при пигментации във Варна",
+    "pending_review": true
+  },
+  {
+    "url": "/uslugi/botulinov-toksin/",
+    "title": "Ботулинов токсин във Варна",
+    "pending_review": true
+  },
+  {
+    "url": "/uslugi/dermalni-filari/",
+    "title": "Дермални филъри във Варна",
+    "pending_review": true
+  },
+  {
+    "url": "/uslugi/mezoterapia/",
+    "title": "Мезотерапия във Варна",
+    "pending_review": true
+  },
+  {
+    "url": "/uslugi/mikronidling/",
+    "title": "Микронидлинг във Варна",
+    "pending_review": true
+  },
+  {
+    "url": "/uslugi/hiperhidroza/",
+    "title": "Консултация при хиперхидроза във Варна",
+    "pending_review": true
+  },
+  {
+    "url": "/uslugi/lazerna-epilacia/",
+    "title": "Лазерна епилация във Варна",
+    "pending_review": true
+  },
+  {
+    "url": "/za-d-r-moneva/",
+    "title": "За д-р Галина Монева",
+    "pending_review": false
+  },
+  {
+    "url": "/ceni/",
+    "title": "Цени",
+    "pending_review": false
+  },
+  {
+    "url": "/kontakti/",
+    "title": "Контакти",
+    "pending_review": false
+  },
+  {
+    "url": "/polezno/",
+    "title": "Полезно за пациентите",
+    "pending_review": true
+  },
+  {
+    "url": "/polezno/koga-da-pregledame-benka/",
+    "title": "Кога една бенка трябва да бъде прегледана?",
+    "pending_review": true
+  },
+  {
+    "url": "/polezno/podgotovka-za-dermatoskopia/",
+    "title": "Как протича дерматоскопията?",
+    "pending_review": true
+  },
+  {
+    "url": "/polezno/predi-i-sled-lazerna-procedura/",
+    "title": "Какво да обсъдите преди лазерна процедура?",
+    "pending_review": true
+  },
+  {
+    "url": "/poveritelnost/",
+    "title": "Поверителност",
+    "pending_review": true
+  },
+  {
+    "url": "/biskvitki/",
+    "title": "Бисквитки и външни услуги",
+    "pending_review": false
+  },
+  {
+    "url": "/uslovia/",
+    "title": "Информация за сайта",
+    "pending_review": true
+  },
+  {
+    "url": "/404/",
+    "title": "Страницата не е намерена",
+    "pending_review": true
+  }
+]
