@@ -15,7 +15,7 @@
   "/bg/news_more/nai-chesto-zadavani-vyprosi-v-medicinskata-estetika/": "/uslugi/estetichna-medicina/",
   "/bg/news_more/nai-esto-zadavani-vyprosi-v-lazernata-estetika/": "/uslugi/lazerna-dermatologia/",
   "/bg/news_more/novosti-za-lazeren-centyr-ego/": "/za-d-r-moneva/",
-  "/bg/news_more/myjka-kozmetologiya-i-lazerna-estetika/": "/uslugi/lazerna-epilacia/",
+  "/bg/news_more/myjka-kozmetologiya-i-lazerna-estetika/": "/uslugi/estetichna-medicina/",
   "/bg/info/privacy": "/poveritelnost/",
   "/bg/info/promocii": "/ceni/",
   "/bg/news": "/polezno/",
@@ -30,5 +30,5 @@
   "/bg/news_more/nai-chesto-zadavani-vyprosi-v-medicinskata-estetika": "/uslugi/estetichna-medicina/",
   "/bg/news_more/nai-esto-zadavani-vyprosi-v-lazernata-estetika": "/uslugi/lazerna-dermatologia/",
   "/bg/news_more/novosti-za-lazeren-centyr-ego": "/za-d-r-moneva/",
-  "/bg/news_more/myjka-kozmetologiya-i-lazerna-estetika": "/uslugi/lazerna-epilacia/"
+  "/bg/news_more/myjka-kozmetologiya-i-lazerna-estetika": "/uslugi/estetichna-medicina/"
 }

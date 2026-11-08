@@ -1,1 +1,14 @@
-{"name":"ego-dermatology","version":"1.0.0","private":true,"type":"module","scripts":{"dev":"node preview-server.mjs","build":"python3 build.py","check":"python3 validate.py"}}
+{
+  "name": "ego-dermatology",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node preview-server.mjs",
+    "build": "python3 build.py",
+    "check": "python3 validate.py",
+    "build:production": "python3 release_check.py && python3 build.py --mode production && python3 validate.py",
+    "check:http": "python3 audit_http.py",
+    "check:release": "python3 release_check.py"
+  }
+}

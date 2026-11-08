@@ -2,171 +2,239 @@
   {
     "url": "/",
     "title": "Дерматолог Варна",
-    "pending_review": false
+    "pending_review": false,
+    "content_sha256": "378ab6a5b4a338f50a043695f2a8f92082af4cdb6fa408cb6cdaa48e7b3e14c8",
+    "indexable": false
   },
   {
     "url": "/uslugi/",
     "title": "Услуги",
-    "pending_review": false
+    "pending_review": false,
+    "content_sha256": "37d11b69e58f3b52e00f02ecbf45ce26588103d8f97ae97bebcd8eb4f4877e9e",
+    "indexable": false
   },
   {
     "url": "/uslugi/dermatologia-venerologia/",
     "title": "Дерматология и венерология",
-    "pending_review": true
+    "pending_review": true,
+    "content_sha256": "61577f38fdfbb081693b3bf4930a27bf01e0c68c1e3c172e4c8a999815f135c2",
+    "indexable": false
   },
   {
     "url": "/uslugi/dermatohirurgia/",
     "title": "Дерматохирургия",
-    "pending_review": true
+    "pending_review": true,
+    "content_sha256": "2b590bb9c0c005b920f3bec7fa7fadbf315674fd202da0e42f7507a6756c3156",
+    "indexable": false
   },
   {
     "url": "/uslugi/lazerna-dermatologia/",
     "title": "Лазерна дерматология",
-    "pending_review": true
+    "pending_review": true,
+    "content_sha256": "5a253449f46bd1a6cf1797fb24fa8ac5cd0a1cb60506a0c397bf9fc0493b077c",
+    "indexable": false
   },
   {
     "url": "/uslugi/estetichna-medicina/",
     "title": "Естетична медицина",
-    "pending_review": true
+    "pending_review": true,
+    "content_sha256": "7ca5708b2a31e713568fa26d117b398a3a8b4b7af721cb10f331af2ab41e19d4",
+    "indexable": false
   },
   {
     "url": "/uslugi/dermatologichen-pregled/",
     "title": "Дерматологичен преглед във Варна",
-    "pending_review": true
+    "pending_review": true,
+    "content_sha256": "350930b031db9d37b46632b3d5f2fd5723289f93cc6bb8eefc0771b2960aab57",
+    "indexable": false
   },
   {
     "url": "/uslugi/dermatoskopia/",
     "title": "Дерматоскопия във Варна",
-    "pending_review": true
+    "pending_review": true,
+    "content_sha256": "d37306b8e120c281103b937a81521488ecb4a1126adbe9181c330ca5df3b5970",
+    "indexable": false
   },
   {
     "url": "/uslugi/benki/",
     "title": "Преглед и премахване на бенки във Варна",
-    "pending_review": true
+    "pending_review": true,
+    "content_sha256": "436b35f571e3defaf518c1eb648446c9639fc62727381feeec23911c88165408",
+    "indexable": false
   },
   {
     "url": "/uslugi/bradavici-kokoshi-tran/",
     "title": "Брадавици и кокоши трън във Варна",
-    "pending_review": true
+    "pending_review": true,
+    "content_sha256": "055d9147ce61a6abe214fd121c33111e5f4adf7729cac8246fcd7662733d92db",
+    "indexable": false
   },
   {
     "url": "/uslugi/kondilomi/",
     "title": "Преглед и лечение на кондиломи във Варна",
-    "pending_review": true
+    "pending_review": true,
+    "content_sha256": "dd970d4122a210071d9bc9d191f74f1904c3f919956b54858d160c72266ed5b3",
+    "indexable": false
   },
   {
     "url": "/uslugi/lazerno-premahvane/",
     "title": "Лазерно премахване на кожни образувания във Варна",
-    "pending_review": true
+    "pending_review": true,
+    "content_sha256": "3f5f85666d6db489eab533d3d017cc7c9b5340abb4b148d04af7bdbe41d02e43",
+    "indexable": false
   },
   {
     "url": "/uslugi/akne/",
     "title": "Преглед и лечение на акне във Варна",
-    "pending_review": true
+    "pending_review": true,
+    "content_sha256": "7ddac11f8c8879986be0c7c3ec3bad83a7ff6f229ebc9805eba24c2e65fc2bd1",
+    "indexable": false
   },
   {
     "url": "/uslugi/co2-frakcionen-lazer/",
     "title": "CO₂ фракционен лазер във Варна",
-    "pending_review": true
+    "pending_review": true,
+    "content_sha256": "1a95cedf3c12569fde130cb0d2c16a2f7a7370b0f67e7b9affcd702d446bde9b",
+    "indexable": false
   },
   {
     "url": "/uslugi/belezi-ot-akne/",
     "title": "Лечение на белези от акне във Варна",
-    "pending_review": true
+    "pending_review": true,
+    "content_sha256": "96ebb082f927db6f206d67ace187068caa9d320cb4c6f147b5b4824e7a228925",
+    "indexable": false
   },
   {
     "url": "/uslugi/rozacea-kapilyari/",
     "title": "Розацея и видими капиляри във Варна",
-    "pending_review": true
+    "pending_review": true,
+    "content_sha256": "90e18e3f5e203cff1841596e3b87ed8dbb14034228e0981adb6de9857adea037",
+    "indexable": false
   },
   {
     "url": "/uslugi/pigmentacii/",
     "title": "Консултация при пигментации във Варна",
-    "pending_review": true
+    "pending_review": true,
+    "content_sha256": "05ed667629cca8f3a0273a40487b8cf87cae39937bc924d94239d2d4e8fe69f9",
+    "indexable": false
   },
   {
     "url": "/uslugi/botulinov-toksin/",
     "title": "Ботулинов токсин във Варна",
-    "pending_review": true
+    "pending_review": true,
+    "content_sha256": "2b2e1780f5c7100a40725477759ed24d5bc3ab1ea5a577df309059ff1bd62562",
+    "indexable": false
   },
   {
     "url": "/uslugi/dermalni-filari/",
     "title": "Дермални филъри във Варна",
-    "pending_review": true
+    "pending_review": true,
+    "content_sha256": "bb263a528e0cb5b7fb7b7ab638d28f71d439a38a861bd6d56acbb8474c37156b",
+    "indexable": false
   },
   {
     "url": "/uslugi/mezoterapia/",
     "title": "Мезотерапия във Варна",
-    "pending_review": true
+    "pending_review": true,
+    "content_sha256": "5a8b2acb10c6264c4fa4a97473d4be4e9155311a238ae6bec19438509a1ec057",
+    "indexable": false
   },
   {
     "url": "/uslugi/mikronidling/",
     "title": "Микронидлинг във Варна",
-    "pending_review": true
+    "pending_review": true,
+    "content_sha256": "ce6fa5123b60d718d46fdb9eb3415789b5eed5c5b99bb11c2bd2f634f8f91171",
+    "indexable": false
   },
   {
     "url": "/uslugi/hiperhidroza/",
     "title": "Консултация при хиперхидроза във Варна",
-    "pending_review": true
+    "pending_review": true,
+    "content_sha256": "31d4fe0d6c81c3b8076cc7137a27b388cf13261b5db7d82ae3cacc72868c768b",
+    "indexable": false
   },
   {
     "url": "/uslugi/lazerna-epilacia/",
     "title": "Лазерна епилация във Варна",
-    "pending_review": true
+    "pending_review": true,
+    "content_sha256": "beb79236c7cf6b864894bf6cefc3abd541b47b9ec3a40534bab2797a3ebf7dc8",
+    "indexable": false
   },
   {
     "url": "/za-d-r-moneva/",
     "title": "За д-р Галина Монева",
-    "pending_review": false
+    "pending_review": false,
+    "content_sha256": "d18172559fb742fa4348a8662a51f070088cc212193c7ec2889b021e3508c169",
+    "indexable": false
   },
   {
     "url": "/ceni/",
     "title": "Цени",
-    "pending_review": false
+    "pending_review": false,
+    "content_sha256": "5facd84bcbf22afbb6ed5281ab8b9f63ade3c5f43e521afa4ad91467cac1572f",
+    "indexable": false
   },
   {
     "url": "/kontakti/",
     "title": "Контакти",
-    "pending_review": false
+    "pending_review": false,
+    "content_sha256": "c855f96a22bf8e7cf8965fd3a0a7223423337453bcf841ed734ac396ad24ea66",
+    "indexable": false
   },
   {
     "url": "/polezno/",
     "title": "Полезно за пациентите",
-    "pending_review": true
+    "pending_review": true,
+    "content_sha256": "6e71c827f6f3e04f3d8e7dfb06d22f49b301a92be25cb5636dfbc1c0a4e5b90f",
+    "indexable": false
   },
   {
     "url": "/polezno/koga-da-pregledame-benka/",
     "title": "Кога една бенка трябва да бъде прегледана?",
-    "pending_review": true
+    "pending_review": true,
+    "content_sha256": "ddf055db594b5b0d550d6d43395942458e01697f270cf192651f4c38b074e63e",
+    "indexable": false
   },
   {
     "url": "/polezno/podgotovka-za-dermatoskopia/",
     "title": "Как протича дерматоскопията?",
-    "pending_review": true
+    "pending_review": true,
+    "content_sha256": "d47d9a9e822aeb2b8eb328aa0ca270f3049a5d1a87ac45822a70d971665956a2",
+    "indexable": false
   },
   {
     "url": "/polezno/predi-i-sled-lazerna-procedura/",
     "title": "Какво да обсъдите преди лазерна процедура?",
-    "pending_review": true
+    "pending_review": true,
+    "content_sha256": "ebfa4fea0258e9c34d4e24d47b0f08765568f4cc26b0be0249acad827e68b5f7",
+    "indexable": false
   },
   {
     "url": "/poveritelnost/",
     "title": "Поверителност",
-    "pending_review": true
+    "pending_review": true,
+    "content_sha256": "9feb5593eeeef8c0dd3057bbeee76b557fd2b5df3e354e8ddbea6ae419a14461",
+    "indexable": false
   },
   {
     "url": "/biskvitki/",
     "title": "Бисквитки и външни услуги",
-    "pending_review": false
+    "pending_review": false,
+    "content_sha256": "cb02b6c28ac2b079b712e180a82c5557432e663de3d2a28f652b01f03a2fe4fd",
+    "indexable": false
   },
   {
     "url": "/uslovia/",
     "title": "Информация за сайта",
-    "pending_review": true
+    "pending_review": true,
+    "content_sha256": "90f35d23abea93897e7740218afce51f6dfd152e3120820d50055080cd051ed9",
+    "indexable": false
   },
   {
     "url": "/404/",
     "title": "Страницата не е намерена",
-    "pending_review": true
+    "pending_review": true,
+    "content_sha256": "cc98b0003379d3233417252960e807a6991f500ab3be6aa2eb9a448143e80ca6",
+    "indexable": false
   }
 ]

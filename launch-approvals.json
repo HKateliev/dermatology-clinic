@@ -1,0 +1,9 @@
+{
+  "production_origin": "https://www.ego-estetic.com",
+  "practice_details_confirmed": false,
+  "privacy_and_provider_details_confirmed": false,
+  "photo_publication_rights_confirmed": false,
+  "price_scope_confirmed": false,
+  "medical_reviews": {},
+  "notes": "No physician approval, legal identity or image rights are inferred from public availability. Record the reviewer's name, actual review date and SHA-256 of the exact reviewed page. See docs/LAUNCH-CHECKLIST.md."
+}

@@ -1,0 +1,13 @@
+{
+  "mode": "production",
+  "origin": "https://www.ego-estetic.com",
+  "unique_pages": 34,
+  "html_documents": 35,
+  "legacy_redirects": 32,
+  "sitemap_urls": 6,
+  "errors": [],
+  "warnings": [],
+  "browser_qa": "See docs/RELEASE-AUDIT-2026-11-08.md; not inferred from static checks.",
+  "security_scope": "Static source and HTTP/browser behaviour; not a hosting-account penetration test.",
+  "core_web_vitals": "Not field-measured. LCP/INP/CLS must be measured on the final public host."
+}

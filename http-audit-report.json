@@ -1,0 +1,6 @@
+{
+  "content_pages_checked": 33,
+  "legacy_redirects_checked": 32,
+  "errors": [],
+  "scope": "Supervised preview HTTP responses, verified in browser through the dev-only audit endpoint. Final public host still requires verification."
+}

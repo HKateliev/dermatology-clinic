@@ -1,40 +1,58 @@
-# EGO — dermatologist-led practice site
+# EGO · д-р Галина Монева — Варна
 
-34 Bulgarian HTML pages, shared CSS and progressive JS, no framework dependency. The 11 September visual revision uses the supplied EGO red logo, local authentic photographs and a shorter homepage (323 versus 586 visible main-content words in browser inspection). Build with `python build.py`; validate with `python validate.py`. Source content is edited in `content.py`; layout is in `build.py` and `dist/assets/style.css`. Static output is tracked intentionally.
+34 Bulgarian pages, static HTML/CSS/JavaScript, external booking through Superdoc. No production framework, npm packages, database, contact form or analytics. The original supplied logo and authentic practice photos are retained.
 
-## Verified facts
+**The technical audit is complete; public release still requires the practice confirmations described below.**
 
-Checked 11 September 2026 against https://www.ego-estetic.com/bg/ and https://superdoc.bg/lekar/galina-moneva . Contact details match. Public profile verifies 30+ years, children, medical education 1989, specialty 1994, EGO since 2019. No numeric reviews, awards, memberships, or current equipment inventory invented. Prices are source snapshots in EUR. EU currency source: https://economy-finance.ec.europa.eu/euro/eu-countries-and-euro/bulgaria-and-euro_en .
+- [Full audit and verified results — 8 November 2026](docs/RELEASE-AUDIT-2026-11-08.md)
+- [Launch checklist and outstanding confirmations](docs/LAUNCH-CHECKLIST.md)
+- [Machine-readable static validation](validation-report.json)
+- [Supervised preview HTTP verification](http-audit-report.json)
+- [Public-release gate result](release-status.json)
 
-## Required practice review before original-domain release
+## Develop and validate
 
-- Medical pages and patient articles are editorial drafts, marked visibly and noindex. Do not remove review notices or change indexation until the practice has reviewed the exact copy. Confirm authorship, reviewer and dates; do not imply prior doctor approval.
-- Full opening hours need confirmation; existing site only exposes Monday 09:00–16:00.
-- Wart price differs: official 60 EUR, Superdoc 40 EUR. No selected price published.
-- Confirm xanthelasma size units, hair-removal zone prices, filler quantity/product, scope of 80 EUR laser rejuvenation and 200 EUR eye contour, biopsy histology inclusion, package eligibility. Preserve historical source prices in content verification notes, not as validated offers.
-- Legal entity, registration data, controller details, lawful bases, retention periods and processing arrangements need final verification. Legal pages are drafts where applicable.
-- Authentic photographs are local JPEG assets captured from the browser-rendered original media in the professional Superdoc gallery, with no generative changes. Portrait original 778×1000, saved displayed 728×936; practice photo 1200×769; treatment room 1200×800. Original download events did not complete; browser capture excludes the browser chrome and cursor. Confirm publication rights and current appearance of the practice with the doctor.
-- Photo sources: https://superdoc.bg/photos/doctors/large/gPzrgfoqJcxtBZqFZu9W0Gny4B0uNt17fGagWExl.jpeg ; https://superdoc.bg/photos/doctors/large/tw2cRewNeQHn06J3pzzJw2msnc6IuvRw68xo3JTE.jpeg ; https://superdoc.bg/photos/doctors/large/GDFofcqxZyARl1DJWMCILqq487vYRWvF7JtpCyH6.jpeg . No equipment model or inventory claims inferred from images.
-- Supplied logo PNG is preserved exactly. CSS frames the main EGO mark for navigation. Theme uses red #c9261b (darkened for white-text contrast), warm white and light peach/olive surfaces. Favicon uses its circular O motif.
+Python 3 and Node.js are sufficient for the normal build; no npm installation is needed. Source content is in `content.py`; templates and metadata are in `build.py`; authored styles/JS are under `dist/assets`. Generated static output is intentionally tracked.
 
-- Social metadata uses the authentic primary doctor portrait. The previous plum social-card asset is retained in source history; no new generated photography is used. Detail pages without a unique primary image omit inherited social images.
+```sh
+npm run build
+npm run check
+npm run dev
+```
 
-## Migration
+The default is **preview mode** on the existing private Sites origin. Every page has noindex and the preview sitemap is empty. This prevents an accidentally exposed review copy from competing with the real practice domain. It is not an access-control mechanism; Sites audience stays private separately.
 
-All discovered key Bulgarian old URLs, including slash variants, are in `redirect-map.json` and `dist/_redirects` with 301 status. 404.html is provided. Do not redirect all legacy content to the homepage. Original domain/DNS/hosting was not changed. Before migration, compare against Search Console and server logs for any additional indexed or backlink-bearing URLs, including language variants. Change ORIGIN to the confirmed production origin, rebuild canonical tags and sitemap, preserve direct 301 mappings, and validate real response statuses on the selected host. Confirm custom-host support for Cloudflare-style _redirects/_headers.
+`npm run check:http` runs read-only HTTP checks against a local preview. Managed preview runs in a separate namespace: if shell loopback is unavailable, the development-only `/_qa/http-audit/` page executes the checks next to that server. Its route, mobile QA shell and Python/source files are not part of `dist` or public deployment.
 
-Medical drafts are deliberately excluded from sitemap and use noindex,follow. Core approved-fact pages are crawlable; private Sites audience additionally restricts access. The private preview domain is self-canonical, never misleadingly set to the existing live domain.
+## Production
 
-## Privacy and accessibility
+`npm run build:production` first checks the real approvals in `launch-approvals.json`, then builds for `https://www.ego-estetic.com` and validates the output. It intentionally fails while physician review, legal/provider details, photo rights and price scope remain unconfirmed. It never fabricates an approval.
 
-No contact form, tracking, analytics, or marketing pixels. Google Maps only loads after explicit consent; equal preference controls, native accessible dialog, persistent browser-local choice and revoke option. External booking on Superdoc. Click-to-call telephone and directions links. Semantic headings, focus styles, skip link, native details, 44px+ primary targets, reduced motion, mobile menu and sticky actions. Primary text colors validated for AA contrast. No claim of certified WCAG conformance.
+For a nondeployed inspection of domain-specific output:
 
-## Validation limitations
+```sh
+python3 build.py --mode production --output audit-production
+python3 validate.py --output audit-production
+```
 
-Static checks cover all local links, anchors, image dimensions, JSON-LD parsing, redirect destinations and primary contrast. JavaScript passes syntax validation. Desktop browser QA confirmed all four homepage image instances load and no horizontal overflow at 1363px. At 390px the mobile menu opens and navigates to Prices; the price document has matching client and scroll widths (no horizontal overflow). A dependency-free preview server and dev-only mobile QA route are included. Core Web Vitals are not field-measured. Review images on real devices and measure LCP/INP/CLS before original-domain release. Do not claim performance targets achieved.
+That inspection bypasses no publishing control and is not a release approval. Its unapproved medical pages remain noindex. Only reviewed pages become indexable; the public-release gate also checks draft notices. The review hash covers the main content excluding the variable source-links block and matches across preview/production. Return to `npm run build` to restore the tracked review output after inspection.
 
-## GitHub handoff
+The final host must actually implement `_headers`, `_redirects`, correct 404 responses and HTTPS, or translate the configuration into its server equivalent. There is a CSP meta fallback, but framing protection and HSTS require actual response headers. Do not assume that copying files to any host applies these files automatically. Core Web Vitals have not been field-measured.
 
-Repository: https://github.com/HKateliev/dermatology-clinic . This repository contains the current EGO website source, static output and original local image assets. Sites publishing is managed separately; GitHub updates do not automatically deploy to Sites. GitHub Pages is not configured.
+## Content and migration
 
-For local review: `npm run dev`; no npm packages need installing. For static hosting use `python3 build.py` (or `npm run build`) and publish `dist`. The development-only mobile QA route is not in the deployment output.
+Verified contacts, procedures, biography and clear EUR prices were compared with the existing EGO site and Superdoc on 8 November 2026. A wart is 60 EUR on EGO and 40 EUR on Superdoc: the site now uses EGO's own figure and records the discrepancy in the audit. Unclear xanthelasma units, filler volume, biopsy histology and hair-removal zone prices are not invented. Only Monday 09:00–16:00 is publicly verified.
+
+Medical pages and articles are drafts pending an actual physician review. Existing absolute promises of scar-free, risk-free or universally harmless treatment are not repeated. There are no fabricated ratings, qualifications, equipment inventories or treatment results. Photograph publication rights and final legal/controller details still require practice confirmation.
+
+`redirect-map.json` covers the 16 discovered old addresses with slash/no-slash variants, 32 direct 301 rules. Search Console/server logs may reveal more URLs. No DNS or hosting changes to the current practice domain have been performed. Original-domain release requires a backup and final-host checks in the launch checklist.
+
+## Images and privacy
+
+WebP variants and a responsive portrait are generated from the exact existing local JPEG photographs by `prepare_assets.py` (requires Pillow for asset regeneration only; normal builds use committed assets). The social card uses the actual portrait and logo. There are no generated people or patient before/after images. Source photographs come from the public Superdoc profile; their publication rights must be confirmed by the practice.
+
+The browser makes no automatic external image/font/analytics requests. The map is created only after explicit consent, with a persistent directions link and withdrawal control. Consent can work in memory if browser storage is blocked; stored consent expires after 180 days. Google receives connection data only when its service is used. Site policy drafts must be finalised for the chosen actual hosting and business arrangements.
+
+## GitHub and Sites
+
+Repository: https://github.com/HKateliev/dermatology-clinic . The existing Site identity in `.openai/hosting.json` is preserved. GitHub and Sites do not automatically synchronise; updating either does not imply publication of the other. GitHub Pages is not configured. The public practice domain has not been switched.
