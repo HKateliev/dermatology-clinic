@@ -1,5 +1,5 @@
 from pathlib import Path
-import html,json,shutil,re,hashlib
+import html,json,shutil,re,hashlib,subprocess,sys
 from urllib.parse import quote,urlsplit
 from content import *
 from site_config import OUT, ORIGIN, MODE, indexable
@@ -194,3 +194,5 @@ for doc in OUT.rglob('*.html'):
 (ROOT/'page-inventory.json').write_text(json.dumps([{'url':p,'title':t,'pending_review':d,'content_sha256':REVIEW_HASHES[p],'indexable':indexable(p,d,REVIEW_HASHES[p])} for p,t,d in PAGES],ensure_ascii=False,indent=2))
 (OUT/'build-info.json').write_text(json.dumps({'mode':MODE,'origin':ORIGIN,'page_count':len(PAGES)},indent=2))
 print(f'Generated {len(PAGES)} unique pages in {MODE} mode; {len(redirects)} mapped legacy URLs.')
+
+subprocess.run([sys.executable,str(ROOT/"build_worker.py"),str(OUT)],check=True)

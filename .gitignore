@@ -2,3 +2,4 @@ __pycache__/
 .sites-runtime/
 *.pyc
 audit-production/
+dist/server/

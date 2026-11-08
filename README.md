@@ -1,6 +1,6 @@
 # EGO · д-р Галина Монева — Варна
 
-34 Bulgarian pages, static HTML/CSS/JavaScript, external booking through Superdoc. No production framework, npm packages, database, contact form or analytics. The original supplied logo and authentic practice photos are retained.
+34 Bulgarian pages, static HTML/CSS/JavaScript delivered through a small Cloudflare Worker, external booking through Superdoc. No production framework, npm packages, database, contact form or analytics. The original supplied logo and authentic practice photos are retained.
 
 **The technical audit is complete; public release still requires the practice confirmations described below.**
 
@@ -8,11 +8,12 @@
 - [Launch checklist and outstanding confirmations](docs/LAUNCH-CHECKLIST.md)
 - [Machine-readable static validation](validation-report.json)
 - [Supervised preview HTTP verification](http-audit-report.json)
+- [Actual published private Site HTTP verification](published-audit-report.json)
 - [Public-release gate result](release-status.json)
 
 ## Develop and validate
 
-Python 3 and Node.js are sufficient for the normal build; no npm installation is needed. Source content is in `content.py`; templates and metadata are in `build.py`; authored styles/JS are under `dist/assets`. Generated static output is intentionally tracked.
+Python 3 and Node.js are sufficient for the normal build; no npm installation is needed. Source content is in `content.py`; templates and metadata are in `build.py`; authored styles/JS are under `dist/assets`. Generated static output is intentionally tracked. `worker/index.js` is the serving template; `build_worker.py` embeds the checked files and emits the ignored `dist/server/index.js`. No runtime asset binding, database or external package is required.
 
 ```sh
 npm run build
@@ -37,7 +38,7 @@ python3 validate.py --output audit-production
 
 That inspection bypasses no publishing control and is not a release approval. Its unapproved medical pages remain noindex. Only reviewed pages become indexable; the public-release gate also checks draft notices. The review hash covers the main content excluding the variable source-links block and matches across preview/production. Return to `npm run build` to restore the tracked review output after inspection.
 
-The final host must actually implement `_headers`, `_redirects`, correct 404 responses and HTTPS, or translate the configuration into its server equivalent. There is a CSP meta fallback, but framing protection and HSTS require actual response headers. Do not assume that copying files to any host applies these files automatically. Core Web Vitals have not been field-measured.
+The current Sites deployment uses the generated Worker to enforce response headers, redirects, canonical routes and correct 404/405/304 responses directly. The native static mode ignored `_headers`/`_redirects`, discovered by checking the actual publication, so it is no longer used. For an alternative static host, `_headers`, `_redirects`, correct 404 responses and HTTPS still require actual server support. There is a CSP meta fallback, but framing protection and HSTS require actual response headers. Do not assume that copying files to any host applies these files automatically. Core Web Vitals have not been field-measured.
 
 ## Content and migration
 
@@ -55,4 +56,4 @@ The browser makes no automatic external image/font/analytics requests. The map i
 
 ## GitHub and Sites
 
-Repository: https://github.com/HKateliev/dermatology-clinic . The existing Site identity in `.openai/hosting.json` is preserved. GitHub and Sites do not automatically synchronise; updating either does not imply publication of the other. GitHub Pages is not configured. The public practice domain has not been switched.
+Repository: https://github.com/HKateliev/dermatology-clinic . The existing Site identity in `.openai/hosting.json` is preserved; the manifest selects Worker ESM output by omitting `static`. Normal `npm run build` generates the serving bundle. Sites packaging includes `.openai/hosting.json` and `dist/server/index.js`; the public assets are embedded in that bundle. GitHub and Sites do not automatically synchronise; updating either does not imply publication of the other. This audit was explicitly deployed to the same owner-private Site as version 5, and its HTTP behaviour was verified. GitHub Pages is not configured. The public practice domain has not been switched.

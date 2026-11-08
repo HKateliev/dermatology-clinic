@@ -1,0 +1,20 @@
+{
+  "origin": "https://ego-dermatology-varna.hkateliev.chatgpt.site",
+  "audience": "owner-private",
+  "site_version": 5,
+  "checked_at": "2026-11-08T11:26:43.442896+00:00",
+  "content_pages_checked": 33,
+  "legacy_redirects_checked": 32,
+  "additional_status_checks": 8,
+  "required_response_headers": [
+    "Content-Security-Policy",
+    "X-Content-Type-Options",
+    "Referrer-Policy",
+    "X-Frame-Options",
+    "Strict-Transport-Security",
+    "Permissions-Policy",
+    "X-Robots-Tag"
+  ],
+  "errors": [],
+  "scope": "Authenticated read-only checks of the actual published private Site. The practice domain ego-estetic.com has not been migrated."
+}
