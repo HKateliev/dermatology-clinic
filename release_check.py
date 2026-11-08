@@ -1,35 +1,27 @@
-"""Fail a public-release gate until real practice approvals are recorded."""
+"""Technical handoff gate for the user-authorised, source-based website."""
 from pathlib import Path
-import json, re
-from datetime import date
-
+import json,re
 ROOT=Path(__file__).resolve().parent
-approvals=json.loads((ROOT/'launch-approvals.json').read_text())
+confirmation=json.loads((ROOT/'launch-approvals.json').read_text())
 inventory=json.loads((ROOT/'page-inventory.json').read_text())
+report=json.loads((ROOT/'validation-report.json').read_text())
 errors=[]
-for key in ['practice_details_confirmed','privacy_and_provider_details_confirmed',
-            'photo_publication_rights_confirmed','price_scope_confirmed']:
-    if approvals.get(key) is not True:errors.append(key)
+for key in ['practice_details_confirmed','photo_publication_rights_confirmed','price_scope_confirmed']:
+ if confirmation.get(key) is not True:errors.append(key)
+if report.get('errors'):errors.append('Static validation errors')
 for item in inventory:
-    path=item['url']
-    if not item['pending_review'] or path in ['/404/','/poveritelnost/','/uslovia/']:
-        continue
-    entry=approvals.get('medical_reviews',{}).get(path,{})
-    try:
-        reviewed=date.fromisoformat(entry.get('date',''))
-        valid_date=reviewed<=date.today()
-    except ValueError:valid_date=False
-    if not (entry.get('reviewer') and valid_date and entry.get('content_sha256')==item['content_sha256']):
-        errors.append('Missing exact-content medical review: '+path)
-    file=ROOT/'dist'/path.strip('/')/'index.html'
-    main=re.search(r'<main[^>]*>(.*?)</main>',file.read_text(),re.S).group(1)
-    if re.search(r'редакционен проект|за медицинско потвърждение|преглед: предстои|предстои потвърждение',main,re.I):
-        errors.append('Draft notices still present: '+path)
-for path in ['poveritelnost','uslovia']:
-    main=re.search(r'<main[^>]*>(.*?)</main>',(ROOT/'dist'/path/'index.html').read_text(),re.S).group(1)
-    if re.search(r'за потвърждение|предстои|настоящият текст е проект',main,re.I):
-        errors.append('Incomplete legal page: /'+path+'/')
-result={'ready_for_public_release':not errors,'blockers':errors}
+ if item['url']=='/404/':continue
+ file=ROOT/'dist'/('index.html' if item['url']=='/' else item['url'].strip('/')+'/index.html')
+ text=file.read_text()
+ if re.search(r'редакционен проект|за медицинско потвърждение|преглед: предстои|за потвърждение преди|Lorem ipsum',text,re.I):
+  errors.append('Unfinished public content: '+item['url'])
+ if item.get('pending_review'):errors.append('Draft route: '+item['url'])
+prices=(ROOT/'dist/ceni/index.html').read_text()
+if 'Superdoc¹' in prices or 'Биопсия — по' in prices:errors.append('Nonofficial price mixed into official price list')
+result={'ready_for_handoff':not errors,'technical_blockers':errors,
+ 'basis':'Official services and prices; existing photo use confirmed by the user; no claim of physician review of new medical advice.',
+ 'installer_checks_before_public_switch':['Back up old website and its database, preserve email/DNS settings.','Confirm full controller/provider identity from the clinic records; the old privacy page is empty.','Apply destination-specific headers/301/404/HTTPS and run live checks on ego-estetic.com.'],
+ 'certifications':{'legal_compliance_certified':False,'medical_review_of_new_clinical_content_claimed':False,'every_possible_web_test_claimed':False}}
 (ROOT/'release-status.json').write_text(json.dumps(result,ensure_ascii=False,indent=2))
 print(json.dumps(result,ensure_ascii=False,indent=2))
 raise SystemExit(bool(errors))

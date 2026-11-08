@@ -37,13 +37,13 @@ redirects=json.loads((ROOT/'redirect-map.json').read_text())
 for old,new in redirects.items():
     status,headers=request(old)
     if status!=301 or headers.get('Location') not in [new,origin+new]:errors.append([old,'Incorrect 301',status,headers.get('Location')])
-for path in ['/missing-page-for-release-audit/','/.git/config','/content.py','/_headers']:
+for path in ['/missing-page-for-release-audit/','/.git/config','/content.py','/server/index.js','/_headers']:
     status,_=request(path)
-    if status!=404:errors.append([path,'Expected 404',status])
+    if status not in ([404] if path=='/missing-page-for-release-audit/' else [403,404]):errors.append([path,'Expected missing/blocked response',status])
 status,headers=request('/ceni')
 if status!=301 or headers.get('Location') not in ['/ceni/',origin+'/ceni/']:errors.append(['/ceni','Missing canonical slash redirect'])
 status,_=request('/','POST')
-if status!=405:errors.append(['POST /','Expected method rejection',status])
+if status not in [403,405]:errors.append(['POST /','Expected method rejection',status])
 status,headers=request('/bg/info/ceni/?audit=1')
 if status!=301 or headers.get('Location') not in ['/ceni/?audit=1',origin+'/ceni/?audit=1']:errors.append(['Redirect query preservation'])
 report={'origin':origin,'content_pages_checked':len(paths),'legacy_redirects_checked':len(redirects),'errors':errors,

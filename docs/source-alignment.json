@@ -1,0 +1,155 @@
+{
+  "checked_on": "2026-11-08",
+  "price_source": "https://www.ego-estetic.com/bg/info/ceni/",
+  "price_rows": 33,
+  "service_pages": {
+    "dermatologichen-pregled": {
+      "title": "Дерматологичен преглед",
+      "source_urls": [
+        "https://www.ego-estetic.com/bg/products/dermatologiya-i-venerologiya/",
+        "https://www.ego-estetic.com/bg/info/ceni/"
+      ],
+      "basis": "Service/FAQ restatement; no added clinical protocol."
+    },
+    "dermatoskopia": {
+      "title": "Дерматоскопия",
+      "source_urls": [
+        "https://www.ego-estetic.com/bg/products/dermatologiya-i-venerologiya/",
+        "https://www.ego-estetic.com/bg/news_more/nai-esto-zadavani-vyprosi-v-dermatohirurgiyata/",
+        "https://www.ego-estetic.com/bg/info/ceni/"
+      ],
+      "basis": "Service/FAQ restatement; no added clinical protocol."
+    },
+    "benki": {
+      "title": "Преглед и премахване на бенки",
+      "source_urls": [
+        "https://www.ego-estetic.com/bg/products/dermatohirurgiya/",
+        "https://www.ego-estetic.com/bg/news_more/nai-esto-zadavani-vyprosi-v-dermatohirurgiyata/",
+        "https://www.ego-estetic.com/bg/info/ceni/"
+      ],
+      "basis": "Service/FAQ restatement; no added clinical protocol."
+    },
+    "bradavici-kokoshi-tran": {
+      "title": "Брадавици и кокоши трън",
+      "source_urls": [
+        "https://www.ego-estetic.com/bg/products/dermatohirurgiya/",
+        "https://www.ego-estetic.com/bg/news_more/nai-esto-zadavani-vyprosi-v-dermatohirurgiyata/",
+        "https://www.ego-estetic.com/bg/info/ceni/"
+      ],
+      "basis": "Service/FAQ restatement; no added clinical protocol."
+    },
+    "kondilomi": {
+      "title": "Преглед и лечение на кондиломи",
+      "source_urls": [
+        "https://www.ego-estetic.com/bg/products/dermatologiya-i-venerologiya/",
+        "https://www.ego-estetic.com/bg/products/dermatohirurgiya/",
+        "https://www.ego-estetic.com/bg/info/ceni/"
+      ],
+      "basis": "Service/FAQ restatement; no added clinical protocol."
+    },
+    "lazerno-premahvane": {
+      "title": "Лазерно премахване на кожни образувания",
+      "source_urls": [
+        "https://www.ego-estetic.com/bg/products/dermatohirurgiya/",
+        "https://www.ego-estetic.com/bg/news_more/nai-esto-zadavani-vyprosi-v-dermatohirurgiyata/"
+      ],
+      "basis": "Service/FAQ restatement; no added clinical protocol."
+    },
+    "akne": {
+      "title": "Преглед и лечение на акне",
+      "source_urls": [
+        "https://www.ego-estetic.com/bg/products/dermatologiya-i-venerologiya/",
+        "https://www.ego-estetic.com/bg/products/estetichna-medicina/",
+        "https://www.ego-estetic.com/bg/products/lazerna-estetika/",
+        "https://www.ego-estetic.com/bg/info/ceni/"
+      ],
+      "basis": "Service/FAQ restatement; no added clinical protocol."
+    },
+    "co2-frakcionen-lazer": {
+      "title": "CO₂ фракционен лазер",
+      "source_urls": [
+        "https://www.ego-estetic.com/bg/products/lazerna-estetika/",
+        "https://www.ego-estetic.com/bg/news_more/nai-esto-zadavani-vyprosi-v-lazernata-estetika/",
+        "https://www.ego-estetic.com/bg/info/ceni/"
+      ],
+      "basis": "Service/FAQ restatement; no added clinical protocol."
+    },
+    "belezi-ot-akne": {
+      "title": "Лечение на белези от акне",
+      "source_urls": [
+        "https://www.ego-estetic.com/bg/products/lazerna-estetika/",
+        "https://www.ego-estetic.com/bg/news_more/nai-esto-zadavani-vyprosi-v-lazernata-estetika/",
+        "https://www.ego-estetic.com/bg/info/ceni/"
+      ],
+      "basis": "Service/FAQ restatement; no added clinical protocol."
+    },
+    "rozacea-kapilyari": {
+      "title": "Розацея и видими капиляри",
+      "source_urls": [
+        "https://www.ego-estetic.com/bg/products/lazerna-estetika/",
+        "https://www.ego-estetic.com/bg/info/ceni/"
+      ],
+      "basis": "Service/FAQ restatement; no added clinical protocol."
+    },
+    "pigmentacii": {
+      "title": "Консултация при пигментации",
+      "source_urls": [
+        "https://www.ego-estetic.com/bg/products/dermatologiya-i-venerologiya/",
+        "https://www.ego-estetic.com/bg/products/estetichna-medicina/",
+        "https://www.ego-estetic.com/bg/info/ceni/"
+      ],
+      "basis": "Service/FAQ restatement; no added clinical protocol."
+    },
+    "botulinov-toksin": {
+      "title": "Ботулинов токсин",
+      "source_urls": [
+        "https://www.ego-estetic.com/bg/products/estetichna-medicina/",
+        "https://www.ego-estetic.com/bg/news_more/nai-chesto-zadavani-vyprosi-v-medicinskata-estetika/",
+        "https://www.ego-estetic.com/bg/info/ceni/"
+      ],
+      "basis": "Service/FAQ restatement; no added clinical protocol."
+    },
+    "dermalni-filari": {
+      "title": "Дермални филъри",
+      "source_urls": [
+        "https://www.ego-estetic.com/bg/products/estetichna-medicina/",
+        "https://www.ego-estetic.com/bg/news_more/nai-chesto-zadavani-vyprosi-v-medicinskata-estetika/",
+        "https://www.ego-estetic.com/bg/info/ceni/"
+      ],
+      "basis": "Service/FAQ restatement; no added clinical protocol."
+    },
+    "mezoterapia": {
+      "title": "Мезотерапия",
+      "source_urls": [
+        "https://www.ego-estetic.com/bg/products/estetichna-medicina/",
+        "https://www.ego-estetic.com/bg/info/ceni/"
+      ],
+      "basis": "Service/FAQ restatement; no added clinical protocol."
+    },
+    "mikronidling": {
+      "title": "Микронидлинг",
+      "source_urls": [
+        "https://www.ego-estetic.com/bg/products/estetichna-medicina/",
+        "https://www.ego-estetic.com/bg/info/ceni/"
+      ],
+      "basis": "Service/FAQ restatement; no added clinical protocol."
+    },
+    "hiperhidroza": {
+      "title": "Консултация при хиперхидроза",
+      "source_urls": [
+        "https://www.ego-estetic.com/bg/products/estetichna-medicina/",
+        "https://www.ego-estetic.com/bg/info/ceni/"
+      ],
+      "basis": "Service/FAQ restatement; no added clinical protocol."
+    },
+    "lazerna-epilacia": {
+      "title": "Лазерна епилация",
+      "source_urls": [
+        "https://www.ego-estetic.com/bg/products/lazerna-epilaciya/"
+      ],
+      "basis": "Service/FAQ restatement; no added clinical protocol."
+    }
+  },
+  "photos": "Use confirmed by the user in this conversation.",
+  "privacy_source": "Original public policy page contains a title but no policy text; legal entity/EIK not invented."
+}

@@ -1,9 +1,14 @@
 {
   "production_origin": "https://www.ego-estetic.com",
-  "practice_details_confirmed": false,
-  "privacy_and_provider_details_confirmed": false,
-  "photo_publication_rights_confirmed": false,
-  "price_scope_confirmed": false,
+  "practice_details_confirmed": true,
+  "photo_publication_rights_confirmed": true,
+  "price_scope_confirmed": true,
+  "price_authority": "https://www.ego-estetic.com/bg/info/ceni/",
+  "content_basis": "Existing official EGO services and FAQ, shortened and reworded; added clinical protocols removed.",
+  "confirmation_basis": "User instructions on 2026-11-08: use the current official prices and existing public practice information, and accept use of the existing photographs.",
+  "existing_privacy_page_has_policy_text": false,
+  "legal_entity_or_eik_published_on_source": false,
+  "privacy_notice_basis": "Public practice name/contact details and actual website behaviour. No company legal form or registration number invented.",
   "medical_reviews": {},
-  "notes": "No physician approval, legal identity or image rights are inferred from public availability. Record the reviewer's name, actual review date and SHA-256 of the exact reviewed page. See docs/LAUNCH-CHECKLIST.md."
+  "notes": "This records source alignment and the user's confirmations. It does not claim that a doctor reviewed new clinical advice or that legal compliance was independently certified. Destination hosting and full controller identity are installer checks."
 }

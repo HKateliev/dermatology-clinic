@@ -7,7 +7,7 @@
     "dev": "node preview-server.mjs",
     "build": "python3 build.py",
     "check": "python3 validate.py && node worker/validate.mjs",
-    "build:production": "python3 release_check.py && python3 build.py --mode production && python3 validate.py && node worker/validate.mjs",
+    "build:production": "python3 build.py && python3 validate.py && python3 release_check.py && python3 build.py --mode production && python3 validate.py && node worker/validate.mjs",
     "check:http": "python3 audit_http.py",
     "check:release": "python3 release_check.py"
   }

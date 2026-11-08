@@ -27,3 +27,7 @@ html{scroll-padding-top:110px} :target{scroll-margin-top:110px}
 /* Text on the coloured service surfaces must retain AA contrast. */
 .service-2 p,.service-3 p,.service-4 p{color:#53574e}.service-2 .text-link,.service-3 .text-link,.service-4 .text-link,.service-2 .card-no,.service-4 .card-no{color:#a51d15}
 .portrait-note span{color:#53574e}
+/* Initial map state, before consent: text must contrast with the green surface. */
+.map-content p{color:#53574e}.map-loader{color:#a51d15}
+/* The root scroll padding already clears the sticky header. */
+.price-group{scroll-margin-top:0}

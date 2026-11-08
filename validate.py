@@ -115,7 +115,7 @@ if any(token in headers for token in ['unsafe-inline','unsafe-eval','script-src 
 for file in OUT.rglob('*'):
     if file.suffix in {'.html','.js','.json','.css'}:
         if re.search(r'github_pat_|gh[pousr]_[A-Za-z0-9]{20,}|BEGIN .*PRIVATE KEY',file.read_text()):errors.append(['Secret-like token',str(file)])
-report={'mode':info['mode'],'origin':origin,'unique_pages':info['page_count'],'html_documents':len(pages),'legacy_redirects':len(redirects),'sitemap_urls':len(locations),'errors':errors,'warnings':warnings,'browser_qa':'See docs/RELEASE-AUDIT-2026-11-08.md; not inferred from static checks.','security_scope':'Static source and HTTP/browser behaviour; not a hosting-account penetration test.','core_web_vitals':'Not field-measured. LCP/INP/CLS must be measured on the final public host.'}
+report={'mode':info['mode'],'origin':origin,'unique_pages':info['page_count'],'html_documents':len(pages),'legacy_redirects':len(redirects),'sitemap_urls':len(locations),'errors':errors,'warnings':warnings,'browser_qa':'See docs/HANDOFF-REPORT-2026-11-08.md; not inferred from static checks.','security_scope':'Static source and HTTP/browser behaviour; not a hosting-account penetration test.','core_web_vitals':'Not field-measured. LCP/INP/CLS must be measured on the final public host.'}
 (ROOT/'validation-report.json').write_text(json.dumps(report,ensure_ascii=False,indent=2))
 print(json.dumps(report,ensure_ascii=False,indent=2))
 raise SystemExit(bool(errors))

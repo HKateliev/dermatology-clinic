@@ -1,59 +1,54 @@
-# EGO · д-р Галина Монева — Варна
+# EGO · д-р Галина Монева — website handoff
 
-34 Bulgarian pages, static HTML/CSS/JavaScript delivered through a small Cloudflare Worker, external booking through Superdoc. No production framework, npm packages, database, contact form or analytics. The original supplied logo and authentic practice photos are retained.
+34 Bulgarian pages, responsive static HTML/CSS/JavaScript and a dependency-free Cloudflare Worker for Sites. External booking is through Superdoc. No production npm packages, database, contact form or analytics.
 
-**The technical audit is complete; public release still requires the practice confirmations described below.**
+**The site is technically ready to hand to the existing maintainer.**
 
-- [Full audit and verified results — 8 November 2026](docs/RELEASE-AUDIT-2026-11-08.md)
-- [Launch checklist and outstanding confirmations](docs/LAUNCH-CHECKLIST.md)
-- [Machine-readable static validation](validation-report.json)
-- [Supervised preview HTTP verification](http-audit-report.json)
-- [Actual published private Site HTTP verification](published-audit-report.json)
-- [Public-release gate result](release-status.json)
+- [Current handoff report](docs/HANDOFF-REPORT-2026-11-08.md)
+- [Destination launch checklist](docs/LAUNCH-CHECKLIST.md)
+- [Static validation](validation-report.json)
+- [Published private Site HTTP check](published-audit-report.json)
+- [Technical handoff gate](release-status.json)
+- [Earlier audit history](docs/RELEASE-AUDIT-2026-11-08.md)
 
-## Develop and validate
+## Build and check
 
-Python 3 and Node.js are sufficient for the normal build; no npm installation is needed. Source content is in `content.py`; templates and metadata are in `build.py`; authored styles/JS are under `dist/assets`. Generated static output is intentionally tracked. `worker/index.js` is the serving template; `build_worker.py` embeds the checked files and emits the ignored `dist/server/index.js`. No runtime asset binding, database or external package is required.
+Python 3 and Node.js are sufficient; no npm install is required.
 
 ```sh
 npm run build
 npm run check
-npm run dev
+npm run check:release
 ```
 
-The default is **preview mode** on the existing private Sites origin. Every page has noindex and the preview sitemap is empty. This prevents an accidentally exposed review copy from competing with the real practice domain. It is not an access-control mechanism; Sites audience stays private separately.
+`content.py` contains the source-based services and official prices; `site_pages.py` the patient FAQ and website notices; `build.py` the layout/metadata. Styles and client JS are in `dist/assets`. Output HTML is intentionally tracked. `worker/index.js` and `build_worker.py` generate ignored `dist/server/index.js`, embedding the checked public resources without an asset binding.
 
-`npm run check:http` runs read-only HTTP checks against a local preview. Managed preview runs in a separate namespace: if shell loopback is unavailable, the development-only `/_qa/http-audit/` page executes the checks next to that server. Its route, mobile QA shell and Python/source files are not part of `dist` or public deployment.
-
-## Production
-
-`npm run build:production` first checks the real approvals in `launch-approvals.json`, then builds for `https://www.ego-estetic.com` and validates the output. It intentionally fails while physician review, legal/provider details, photo rights and price scope remain unconfirmed. It never fabricates an approval.
-
-For a nondeployed inspection of domain-specific output:
+The default build is the existing private review origin: all pages are noindex and its sitemap is empty. Production uses `https://www.ego-estetic.com`, with 33 indexable content pages and a noindex 404:
 
 ```sh
-python3 build.py --mode production --output audit-production
-python3 validate.py --output audit-production
+npm run build:production
 ```
 
-That inspection bypasses no publishing control and is not a release approval. Its unapproved medical pages remain noindex. Only reviewed pages become indexable; the public-release gate also checks draft notices. The review hash covers the main content excluding the variable source-links block and matches across preview/production. Return to `npm run build` to restore the tracked review output after inspection.
+Do not copy a preview `dist` onto the real domain. The source manifest retains the existing Sites project ID and selects Worker ESM by omitting `static`. Sites requires explicit publishing; it is not automatically synced with GitHub. The practice domain has not been switched by this project.
 
-The current Sites deployment uses the generated Worker to enforce response headers, redirects, canonical routes and correct 404/405/304 responses directly. The native static mode ignored `_headers`/`_redirects`, discovered by checking the actual publication, so it is no longer used. For an alternative static host, `_headers`, `_redirects`, correct 404 responses and HTTPS still require actual server support. There is a CSP meta fallback, but framing protection and HSTS require actual response headers. Do not assume that copying files to any host applies these files automatically. Core Web Vitals have not been field-measured.
+## Handoff ZIP
 
-## Content and migration
+```sh
+python3 make_handoff.py --output-dir /absolute/output/directory --source-ref main
+```
 
-Verified contacts, procedures, biography and clear EUR prices were compared with the existing EGO site and Superdoc on 8 November 2026. A wart is 60 EUR on EGO and 40 EUR on Superdoc: the site now uses EGO's own figure and records the discrepancy in the audit. Unclear xanthelasma units, filler volume, biopsy histology and hair-removal zone prices are not invented. Only Monday 09:00–16:00 is publicly verified.
+The ZIP includes `public_html/` (ready production-domain files with Apache/LiteSpeed `.htaccess`) and `handoff/` (Bulgarian instructions, Nginx examples, redirect map, manifests, results and a standalone Worker alternative). Only the contents of `public_html/` belong in the public web root. Do not publish the whole ZIP, source, documentation, backups or the alternative Worker file as a static asset.
 
-Medical pages and articles are drafts pending an actual physician review. Existing absolute promises of scar-free, risk-free or universally harmless treatment are not repeated. There are no fabricated ratings, qualifications, equipment inventories or treatment results. Photograph publication rights and final legal/controller details still require practice confirmation.
+The authoring checkout is restored to nonindexable preview after packaging. The final host needs its actual server configuration and TLS checks. Apache and Nginx were not installed in the creation environment, so their examples require validation by the maintainer on the destination. This is a static site, not a WordPress import/theme or the old CMS admin panel.
 
-`redirect-map.json` covers the 16 discovered old addresses with slash/no-slash variants, 32 direct 301 rules. Search Console/server logs may reveal more URLs. No DNS or hosting changes to the current practice domain have been performed. Original-domain release requires a backup and final-host checks in the launch checklist.
+## Content and confirmations
 
-## Images and privacy
+The user confirmed image use and that the clinic's own latest price list is correct. Prices use only https://www.ego-estetic.com/bg/info/ceni/ : 33 published positions, including the exact xanthelasma size units. No biopsy price from Superdoc or invented hair-removal zone prices remain. The detailed service copy and patient FAQ were reduced to the existing published services and answers. Added clinical protocols were removed; there is no invented doctor-review byline or fake testimonial/rating.
 
-WebP variants and a responsive portrait are generated from the exact existing local JPEG photographs by `prepare_assets.py` (requires Pillow for asset regeneration only; normal builds use committed assets). The social card uses the actual portrait and logo. There are no generated people or patient before/after images. Source photographs come from the public Superdoc profile; their publication rights must be confirmed by the practice.
+The current original privacy URL was checked in the browser and has a title but no policy text. The new notice uses public practice identity/contact details and the actual website data flow. No company form or EIK was invented. The clinic/maintainer must confirm the exact legal controller identity and chosen hosting/log-retention information before the public switch. This does not prevent handing over the completed files and does not imply legal certification.
 
-The browser makes no automatic external image/font/analytics requests. The map is created only after explicit consent, with a persistent directions link and withdrawal control. Consent can work in memory if browser storage is blocked; stored consent expires after 180 days. Google receives connection data only when its service is used. Site policy drafts must be finalised for the chosen actual hosting and business arrangements.
+The consent-controlled Google map, safe external booking links, keyboard focus, mobile navigation, semantic metadata, source-safe redirects, correct 404 and security headers are implemented. `worker/validate.mjs` checks the serving bundle; `validate.py` checks static content and resources. `audit_http.py --origin https://www.ego-estetic.com` can verify the destination after installation. Managed preview has a development-only `/_qa/http-audit/` route for its isolated namespace; QA routes are not in the deployment or handoff.
 
-## GitHub and Sites
+The image assets are authentic local photographs with WebP variants and a responsive portrait; the original supplied logo is retained. Normal builds use committed assets. Only regenerating raster derivatives with `prepare_assets.py` requires Pillow and the listed system fonts. The 1200×630 social card uses the actual portrait/logo.
 
-Repository: https://github.com/HKateliev/dermatology-clinic . The existing Site identity in `.openai/hosting.json` is preserved; the manifest selects Worker ESM output by omitting `static`. Normal `npm run build` generates the serving bundle. Sites packaging includes `.openai/hosting.json` and `dist/server/index.js`; the public assets are embedded in that bundle. GitHub and Sites do not automatically synchronise; updating either does not imply publication of the other. This audit was explicitly deployed to the same owner-private Site as version 5, and its HTTP behaviour was verified. GitHub Pages is not configured. The public practice domain has not been switched.
+Core Web Vitals have not been field-measured. The reports explicitly distinguish tested code/Chromium/HTTP behaviour from real-device, cross-browser, infrastructure and legal checks.
