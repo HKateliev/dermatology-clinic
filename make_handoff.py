@@ -36,10 +36,13 @@ for line in (STAGE/'_headers').read_text().splitlines()[1:]:
 assert 'X-Robots-Tag' not in headers
 apache=['# Apache 2.4: install at the document root with the new site.',
  '# Required: AllowOverride for FileInfo, Indexes/Options and AuthConfig; mod_rewrite, mod_headers.',
- 'Options -Indexes -MultiViews','DirectoryIndex index.html','ErrorDocument 404 /404.html',
+ 'Options -Indexes -MultiViews','DirectoryIndex disabled','DirectoryIndex index.html','FallbackResource disabled',
+ 'AddDefaultCharset UTF-8','ErrorDocument 404 /404.html',
  '<IfModule mod_mime.c>','  AddType image/webp .webp','  AddType image/svg+xml .svg','  AddType text/javascript .js','</IfModule>',
  '<IfModule mod_rewrite.c>','RewriteEngine On','RewriteCond %{REQUEST_METHOD} !^(GET|HEAD)$ [NC]','RewriteRule ^ - [R=405,L]',
- r'RewriteRule (^|/)\.(?!well-known/) - [R=404,L]','RewriteRule ^_(headers|redirects)$ - [R=404,L]']
+ r'RewriteRule (^|/)\.(?!well-known/) - [R=404,L]','RewriteRule ^_(headers|redirects)$ - [R=404,L]',
+ '# Keep the custom error document reachable on internal 404 subrequests.',
+ 'RewriteCond %{ENV:REDIRECT_STATUS} !=404',r'RewriteRule ^404(?:\.html|/.*)?$ - [R=404,L]']
 # Exact old URLs redirect straight to the canonical destination, with query retained.
 seen=set()
 for old,new in redirects.items():
@@ -52,11 +55,13 @@ apache+=['# For a reverse proxy, use the host\'s trusted HTTPS setting; never tr
  'RewriteRule ^ '+origin+'%{REQUEST_URI} [R=301,L,NE]',
  'RewriteCond %{THE_REQUEST} \\s/+(.*/)?index\\.html(?:[?\\s]) [NC]',
  'RewriteRule ^(.*)index\\.html$ '+origin+'/$1 [R=301,L,NE]','</IfModule>',
- '<IfModule mod_headers.c>','  Header always set Allow "GET, HEAD"']
+ '<IfModule mod_headers.c>','  Header onsuccess unset Allow','  Header always set Allow "GET, HEAD"',
+ '  Header always set X-Robots-Tag "noindex, follow" "expr=%{REQUEST_STATUS} >= 400"']
 for key,value in headers.items():apache.append('  Header always set '+key+' "'+value.replace('"','\\"')+'"')
 apache+=['  Header set Cache-Control "public, max-age=0, must-revalidate"',
  '  <FilesMatch "\\.(?:css|js|webp|png|jpg|jpeg|svg|ico)$">','    Header set Cache-Control "public, max-age=86400"','  </FilesMatch>','</IfModule>',
- '<FilesMatch "\\.(?:py|mjs|map|log|ini|env|sql|bak|zip|tar|gz)$">','  Require all denied','</FilesMatch>',
+ '# This is a static site: block leftover CMS scripts, source files and backups.',
+ '<FilesMatch "(?i)\\.(?:php[0-9]*|phtml|phar|cgi|pl|py|sh|mjs|map|log|ini|env|sql|sqlite|db|json|bak|zip|tar|gz)$">','  Require all denied','</FilesMatch>',
  '<IfModule mod_deflate.c>','  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/xml image/svg+xml','</IfModule>']
 (PUBLIC/'.htaccess').write_text('\n'.join(apache)+'\n')
 # Nginx: snippets are intentionally outside public_html and require host-specific installation.

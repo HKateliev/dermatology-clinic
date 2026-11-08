@@ -1,0 +1,32 @@
+{
+  "apache": {
+    "apache_version": "2.4.69 Debian binary in isolated local fixture",
+    "http_checks": 205,
+    "errors": [],
+    "artifact_sha256": "d3f27c86e2501fa2f18ef0b0685a94b15a2b0a5d8ecae95698cea3df58246f9a"
+  },
+  "browser": {
+    "rendered": 68,
+    "axePages": 34,
+    "violations": [],
+    "errors": [],
+    "flowChecks": [
+      "menu",
+      "Escape and focus",
+      "consent default",
+      "consent persistence",
+      "consent withdrawal",
+      "33 official price rows",
+      "booking URL"
+    ],
+    "environment": "Approved cloud Chromium browser; same production HTML/assets in the supervised preview. Not a physical-device or Safari/Firefox test."
+  },
+  "production_validation": {
+    "mode": "production",
+    "unique_pages": 34,
+    "sitemap_urls": 33,
+    "errors": [],
+    "warnings": []
+  },
+  "artifact": "EGO-hosting-files.zip"
+}

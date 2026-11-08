@@ -37,7 +37,7 @@ redirects=json.loads((ROOT/'redirect-map.json').read_text())
 for old,new in redirects.items():
     status,headers=request(old)
     if status!=301 or headers.get('Location') not in [new,origin+new]:errors.append([old,'Incorrect 301',status,headers.get('Location')])
-for path in ['/missing-page-for-release-audit/','/.git/config','/content.py','/server/index.js','/_headers']:
+for path in ['/missing-page-for-release-audit/','/.git/config','/content.py','/server/index.js','/_headers','/index.php','/source.php']:
     status,_=request(path)
     if status not in ([404] if path=='/missing-page-for-release-audit/' else [403,404]):errors.append([path,'Expected missing/blocked response',status])
 status,headers=request('/ceni')
