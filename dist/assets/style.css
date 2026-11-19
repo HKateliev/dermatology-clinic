@@ -29,5 +29,25 @@ html{scroll-padding-top:110px} :target{scroll-margin-top:110px}
 .portrait-note span{color:#53574e}
 /* Initial map state, before consent: text must contrast with the green surface. */
 .map-content p{color:#53574e}.map-loader{color:#a51d15}
+
+/* Disclosure navigation and focus with the fixed mobile actions. */
+.nav a[aria-current=location]{color:var(--brand);text-decoration:underline;text-underline-offset:8px}
+.service-5 h3{color:#fff}
+.breadcrumbs{flex-wrap:wrap}
+.footer-bottom .js-only{display:none}
+.js-enabled .footer-bottom .js-only{display:inline-block}
+.menu-toggle{display:none}
+.map-content:not([hidden])+.map-directions{display:none}
+@media(min-width:801px){.no-js-nav{display:none}}
+@media(max-width:800px){
+  html{scroll-padding-bottom:calc(76px + env(safe-area-inset-bottom))}
+  .js-enabled .menu-toggle{display:block}
+  .nav.is-open{
+    max-height:calc(100vh - 156px - env(safe-area-inset-bottom));
+    max-height:calc(100dvh - 156px - env(safe-area-inset-bottom));
+    overflow-y:auto;
+    overscroll-behavior-y:contain;
+  }
+}
 /* The root scroll padding already clears the sticky header. */
 .price-group{scroll-margin-top:0}

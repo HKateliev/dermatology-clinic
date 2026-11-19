@@ -16,7 +16,7 @@ favicon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><rect wid
 card = Image.new('RGB', (1200, 630), '#fff9f5')
 portrait = ImageOps.fit(Image.open(assets/'doctor.jpg').convert('RGB'), (460, 630), centering=(.5, .3))
 card.paste(portrait, (740, 0))
-logo = Image.open(assets/'ego-logo-original.png').convert('RGBA')
+logo = Image.open(assets/'ego-logo.webp').convert('RGBA')
 logo.thumbnail((220, 136))
 card.paste(logo, (55, 32), logo)
 font_path = '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'
